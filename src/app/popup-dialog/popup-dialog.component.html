@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Email</h1>
+<div mat-dialog-content>
+  <p>Edit send mail</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Email Subject</mat-label>
+    <input matInput [(ngModel)]="data.email">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label> Message</mat-label>
+    <textarea matInput placeholder></textarea>
+    <input matInput [(ngModel)]="data.message">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button [mat-dialog-close]="data.sequence" cdkFocusInitial> Save option</button>
+</div>
+
