@@ -1,0 +1,23 @@
+[
+    {
+        "sequence": 0,
+        "type": "event",
+        "name": "userSubscribed",
+        "description": "Events : User Subscribed",
+        "extraFields": [{ "key": "firstName", "value": "" ,"description":"First Name :"}, { "key": "LastName", "value": "","description":"Last Name :" }]
+    },
+    {
+        "sequence": 1,
+        "type": "action",
+        "name": "sendEmail",
+        "description": "Action : Send Email",
+        "extraFields": [{ "key": "email", "value": "" ,"description":"Email Subject :"}, { "key": "message", "value": "" ,"description":"Message :"}]
+    },
+    {
+        "sequence": 2,
+        "type": "action",
+        "name": "sendSms",
+        "description": "Action : Send SMS",
+        "extraFields": [{ "key": "phoneNumber", "value": "" ,"description":"Phone Number :"}, { "key": "message", "value": "" ,"description":"Message :"}]
+    }
+]
