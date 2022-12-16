@@ -1,12 +1,10 @@
 <div class="example-container">
-  <h2>Events</h2>
-
-  <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="menus" [cdkDropListConnectedTo]="[doneList]"
+    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="menus" [cdkDropListConnectedTo]="[doneList]"
     class="example-list" (cdkDropListDropped)="drop($event)">
     <div *ngFor="let groupItem of menuGroup">
       <div>{{groupItem}}</div>
       <div class="example-box" *ngFor="let item of menus">
-        <div *ngIf="checkIfExists(item,groupItem)" cdkDrag>{{item}}</div>
+        <div *ngIf="checkIfExists(item,groupItem)" cdkDrag>{{item.description}}</div>
       </div>
     </div>
 
@@ -14,21 +12,19 @@
 </div>
 
 <div class="example-container">
-  <h2>Actions</h2>
-
   <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="menusSelected" [cdkDropListConnectedTo]="[todoList]"
     class="example-list" (cdkDropListDropped)="drop($event)">
 
     <div class="example-box" *ngFor="let item of menusSelected" cdkDrag>
-      <div>{{item}}</div>
-      <div *ngIf="item=='Events : User Subscribed'">
-        <app-send-email></app-send-email>
+      <div>{{item.description}}</div>
+      <div *ngIf="item.name=='userSubscribed'">
+        <app-send-email [item]="item"></app-send-email>
       </div>
-      <div *ngIf="item=='Actions : Send Email'">
-        <app-send-email></app-send-email>
+      <div *ngIf="item.name=='sendEmail'">
+        <app-send-email [item]="item"></app-send-email>
       </div>
-      <div *ngIf="item=='Actions : Send SMS'">
-        <app-send-email></app-send-email>
+      <div *ngIf="item.name=='sendSms'">
+        <app-send-email [item]="item"></app-send-email>
       </div>
     </div>
   </div>

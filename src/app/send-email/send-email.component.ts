@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { Component, Input } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { PopupDialogComponent } from '../popup-dialog/popup-dialog.component';
+import { MenuService } from '../services/menu/menu.service';
+import { Menu } from '../type';
 
 export interface SendEmail {
   email: string;
@@ -15,15 +17,18 @@ export interface SendEmail {
 
 
 export class SendEmailComponent {
-
+  @Input() item: Menu;
   email: string;
   message: string;
-
-  constructor(public dialog: MatDialog) {}
+  menusSelected: string[];
+  constructor(public dialog: MatDialog, private menuService: MenuService) { }
+  ngOnInit() {
+    this.menuService.menuCast.subscribe(menuSelectedValues => this.menusSelected = menuSelectedValues);
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(PopupDialogComponent, {
-      data: {email: this.email, message: this.message},
+      data: { email: this.email, message: this.message },
     });
 
     dialogRef.afterClosed().subscribe(result => {
