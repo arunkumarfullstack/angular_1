@@ -20,19 +20,36 @@ export class SendEmailComponent {
   @Input() item: Menu;
   email: string;
   message: string;
-  menusSelected: string[];
+  menusSelected: Menu[];
   constructor(public dialog: MatDialog, private menuService: MenuService) { }
   ngOnInit() {
     this.menuService.menuCast.subscribe(menuSelectedValues => this.menusSelected = menuSelectedValues);
   }
 
   openDialog(): void {
+    this.item.extraFields.forEach(item => {
+      if (item.key == "email") {
+        this.email = item.value;
+      }
+      if (item.key == "message") {
+        this.message = item.value;
+      }
+      return item;
+    });
+
     const dialogRef = this.dialog.open(PopupDialogComponent, {
       data: { email: this.email, message: this.message },
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      console.log(result);
+      this.item.extraFields.forEach(item => {
+        if (item.key == "firstName") {
+          item.value = result;
+        }
+        return item;
+      });
       this.email = result;
       this.message = result;
     });
