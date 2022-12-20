@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CdkDragDropConnectedSortingComponent } from './cdk-drag-drop-connected-sorting/cdk-drag-drop-connected-sorting.component';
 import { MaterialModule } from './material-module/material.module';
-import { SendEmailComponent } from './send-email/send-email.component';
-import { SendMessageComponent } from './send-message/send-message.component';
+import { BuildComponent } from './app-build/app-build.component';
 import { PopupDialogComponent } from './popup-dialog/popup-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,10 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     CdkDragDropConnectedSortingComponent,
-    SendEmailComponent,
-    SendMessageComponent,
-    PopupDialogComponent,
-    
+    BuildComponent,
+    PopupDialogComponent,    
   ],
   imports: [
     BrowserModule,

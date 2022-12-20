@@ -10,13 +10,13 @@ export interface SendEmail {
 }
 
 @Component({
-  selector: 'app-send-email',
-  templateUrl: './send-email.component.html',
-  styleUrls: ['./send-email.component.css']
+  selector: 'app-build',
+  templateUrl: './app-build.component.html',
+  styleUrls: ['./app-build.component.css']
 })
 
 
-export class SendEmailComponent {
+export class BuildComponent {
   @Input() item: Menu;
   email: string;
   message: string;
