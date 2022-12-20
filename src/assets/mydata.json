@@ -4,20 +4,23 @@
         "type": "event",
         "name": "userSubscribed",
         "description": "Events : User Subscribed",
-        "extraFields": [{ "key": "firstName", "value": "" ,"description":"First Name :"}, { "key": "LastName", "value": "","description":"Last Name :" }]
+        "popupHeader":"User Details",
+        "extraFields": [{ "key": "firstName", "value": "" ,"description":"First Name :","dataType":"string"}, { "key": "LastName", "value": "","description":"Last Name :","dataType":"string" }]
     },
     {
         "sequence": 1,
         "type": "action",
         "name": "sendEmail",
         "description": "Action : Send Email",
-        "extraFields": [{ "key": "email", "value": "" ,"description":"Email Subject :"}, { "key": "message", "value": "" ,"description":"Message :"}]
+        "popupHeader":"Email",
+        "extraFields": [{ "key": "email", "value": "" ,"description":"Email Subject :","dataType":"string"}, { "key": "message", "value": "" ,"description":"Message :","dataType":"string"}]
     },
     {
         "sequence": 2,
         "type": "action",
         "name": "sendSms",
         "description": "Action : Send SMS",
-        "extraFields": [{ "key": "phoneNumber", "value": "" ,"description":"Phone Number :"}, { "key": "message", "value": "" ,"description":"Message :"}]
+        "popupHeader":"SMS",
+        "extraFields": [{ "key": "phoneNumber", "value": "" ,"description":"Phone Number :","dataType":"string"}, { "key": "message", "value": "" ,"description":"Message :","dataType":"string"}]
     }
 ]
